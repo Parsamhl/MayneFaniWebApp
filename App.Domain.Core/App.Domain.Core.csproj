@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mayne\Base\Entities\" />
     <Folder Include="Mayne\Cars\Entities\" />
     <Folder Include="Mayne\Cars\Data\" />
     <Folder Include="Mayne\Cars\Service\" />
-    <Folder Include="Mayne\City\Entities\" />
-    <Folder Include="Mayne\User\Entities\" />
   </ItemGroup>
 
 </Project>
