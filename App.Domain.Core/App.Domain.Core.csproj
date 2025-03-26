@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mayne\Cars\Entities\" />
     <Folder Include="Mayne\Cars\Data\" />
     <Folder Include="Mayne\Cars\Service\" />
   </ItemGroup>
