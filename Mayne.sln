@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{A0BB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppService", "AppService", "{B2DAAE3B-D8DE-493B-A0C9-C8E23A115490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.Core", "App.Domain.Core\App.Domain.Core.csproj", "{40932539-4B15-438E-87F7-6A8DEAEF4508}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Core", "App.Domain.Core\App.Domain.Core.csproj", "{40932539-4B15-438E-87F7-6A8DEAEF4508}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.AppService", "App.Domain.AppService\App.Domain.AppService.csproj", "{816065D8-810D-4A4D-AA0B-04B4E8803904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.AppService", "App.Domain.AppService\App.Domain.AppService.csproj", "{816065D8-810D-4A4D-AA0B-04B4E8803904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain.Service", "App.Domain.Service\App.Domain.Service.csproj", "{987CDC0C-9BE2-46B3-9633-6B102A10EDC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Service", "App.Domain.Service\App.Domain.Service.csproj", "{987CDC0C-9BE2-46B3-9633-6B102A10EDC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{46677F56-0F82-479B-A333-312105C864D1}"
 EndProject
@@ -31,7 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ef", "Ef", "{C169B7E8-3576-46EC-B8FF-B584A599B7FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infra.Repository.Ef", "App.Infra.Repository.Ef\App.Infra.Repository.Ef.csproj", "{30963539-6357-4E73-ACB1-DF64E0CCB048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infra.Repository.Ef", "App.Infra.Repository.Ef\App.Infra.Repository.Ef.csproj", "{30963539-6357-4E73-ACB1-DF64E0CCB048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infra.Db.SqlServer", "App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj", "{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{30963539-6357-4E73-ACB1-DF64E0CCB048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30963539-6357-4E73-ACB1-DF64E0CCB048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30963539-6357-4E73-ACB1-DF64E0CCB048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{AD41CC2A-249C-4183-BF47-A677F78E25FA} = {56F5606E-2403-4160-9BB7-282F5C1ABD78}
 		{C169B7E8-3576-46EC-B8FF-B584A599B7FF} = {AD41CC2A-249C-4183-BF47-A677F78E25FA}
 		{30963539-6357-4E73-ACB1-DF64E0CCB048} = {C169B7E8-3576-46EC-B8FF-B584A599B7FF}
+		{B8A7B6F3-4B81-411B-B01E-B19447FBFF65} = {46677F56-0F82-479B-A333-312105C864D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24ED9F51-F8F3-476D-B0F0-C8661B4FB45B}
