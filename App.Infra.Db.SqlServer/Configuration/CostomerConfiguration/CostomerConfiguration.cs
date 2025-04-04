@@ -13,7 +13,7 @@ namespace App.Infra.Db.SqlServer.Configuration.CostomerConfiguration
     {
         public void Configure(EntityTypeBuilder<Costomer> builder)
         {
-            builder.ToTable("Costomers")l
+            builder.ToTable("Costomers");
         }
     }
 }

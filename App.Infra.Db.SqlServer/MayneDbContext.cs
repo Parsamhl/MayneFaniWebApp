@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using App.Domain.Core.Mayne.Connection;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Db.SqlServer
 {
@@ -12,11 +8,16 @@ namespace App.Infra.Db.SqlServer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(Connection.ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
-        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.ConfigureConventions(configurationBuilder);
+            modelBuilder.ApplyConfiguration(new Configuration.CostomerConfiguration.CostomerConfiguration());
+            modelBuilder.ApplyConfiguration(new Configuration.OperatorConfiguration.OperatorConfiguration());
+            modelBuilder.ApplyConfiguration(new Configuration.CarConfiguration.CarConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }
