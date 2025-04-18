@@ -19,7 +19,7 @@ namespace App.Infra.Db.SqlServer.Configuration.CarConfiguration
 
             builder.HasOne(c => c.CarOwner).WithMany(c => c.CostomerCars)
                 .HasForeignKey(c => c.CarId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 

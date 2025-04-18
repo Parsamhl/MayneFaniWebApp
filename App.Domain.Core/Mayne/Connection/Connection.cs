@@ -8,7 +8,7 @@ namespace App.Domain.Core.Mayne.Connection
 {
     public static class Connection
     {
-       public static string ConnectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=Hw15;Integrated Security=SSPI;";
+       public static string ConnectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=Myne_Fani;Integrated Security=SSPI;";
 
     }
 }

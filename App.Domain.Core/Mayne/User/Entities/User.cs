@@ -20,7 +20,7 @@ namespace App.Domain.Core.Mayne.User.Entities
         public string? PhoneNumber { get; set; }
 
 
-        public Address? Address { get; set; }
+       
         
 
 

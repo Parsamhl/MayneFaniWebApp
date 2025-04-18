@@ -1,4 +1,8 @@
-﻿using App.Domain.Core.Mayne.Connection;
+﻿using App.Domain.Core.Mayne.Base.Entities;
+using App.Domain.Core.Mayne.Cars.Entities;
+using App.Domain.Core.Mayne.City.Entities;
+using App.Domain.Core.Mayne.Connection;
+using App.Domain.Core.Mayne.User.Entities;
 using App.Infra.Db.SqlServer.Configuration.CarConfiguration;
 using App.Infra.Db.SqlServer.Configuration.CostomerConfiguration;
 using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
@@ -22,6 +26,13 @@ namespace App.Infra.Db.SqlServer
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Operator> Operator { get; set; }
+        
+        public DbSet<Costomer> Costomers { get; set; }
+        public DbSet<Base> Bases { get; set; }
 
     }
 }

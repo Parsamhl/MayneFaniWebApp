@@ -14,9 +14,5 @@ namespace App.Domain.Core.Mayne.User.Entities
         public string LastName { get; set; }
         public string UserName  { get; set; }
 
-        
-
-
-
     }
 }
