@@ -14,6 +14,12 @@ namespace App.Infra.Db.SqlServer.Configuration.CarConfiguration
         public void Configure(EntityTypeBuilder<Car> builder)
         {
             builder.ToTable("Cars");
+
+            builder.HasKey(c => c.PlateNumber);
+
+            builder.HasOne(c => c.CarOwner).WithMany(c => c.CostomerCars)
+                .HasForeignKey(c => c.CarId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 

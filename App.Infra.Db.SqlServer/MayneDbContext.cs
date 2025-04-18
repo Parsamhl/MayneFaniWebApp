@@ -1,4 +1,7 @@
 ﻿using App.Domain.Core.Mayne.Connection;
+using App.Infra.Db.SqlServer.Configuration.CarConfiguration;
+using App.Infra.Db.SqlServer.Configuration.CostomerConfiguration;
+using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Db.SqlServer
@@ -13,9 +16,9 @@ namespace App.Infra.Db.SqlServer
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new Configuration.CostomerConfiguration.CostomerConfiguration());
-            modelBuilder.ApplyConfiguration(new Configuration.OperatorConfiguration.OperatorConfiguration());
-            modelBuilder.ApplyConfiguration(new Configuration.CarConfiguration.CarConfiguration());
+            modelBuilder.ApplyConfiguration(new CostomerConfiguration());
+            modelBuilder.ApplyConfiguration(new OperatorConfiguration());
+            modelBuilder.ApplyConfiguration(new CarConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
