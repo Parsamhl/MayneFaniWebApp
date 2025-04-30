@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Mayne\City\" />
+    <Folder Include="Mayne\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain.Core\App.Domain.Core.csproj" />
+    <ProjectReference Include="..\App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj" />
+  </ItemGroup>
+
 </Project>

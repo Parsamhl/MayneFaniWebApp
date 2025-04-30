@@ -14,15 +14,15 @@ namespace App.Domain.Core.Mayne.Cars.Entities
         public string CarName { get; set; }
         public string CarBrand { get; set; }
         public string PlateNumber { get; set; }
-        
+
 
         public Costomer CarOwner { get; set; }
         public int CarOwnerID { get; set; }
 
-        public Base.Entities.Base ResevedBase { get; set; } 
-        public int BaseId { get; set; }
+       
 
 
+        public List<History.Entites.CarHistory> CarHistory { get; set; }
 
 
     }

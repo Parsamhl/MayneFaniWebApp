@@ -9,7 +9,7 @@ namespace App.Domain.Core.Mayne.Cars.Data
         Task<Result.Result> Get(string plate , CancellationToken cancellation);
         Task<Result.Result> Add(Car car , CancellationToken cancellation);  
         Task<List<CarDto>> GetAll();
-        Task<List<CarDto>> History(string plate , CancellationToken cancellation);
+      //  Task<List<CarDto>> History(string plate , CancellationToken cancellation);
 
     }
 }
