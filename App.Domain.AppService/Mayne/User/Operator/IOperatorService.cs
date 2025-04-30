@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace App.Domain.AppService.Mayne.User.Operator
 {
-    public class IOperatorService
+    public interface IOperatorService
     {
+         
     }
 }
