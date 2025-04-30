@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.AppService.Mayne.User.Operator
+namespace App.Domain.Core.Mayne.Reservation.Data
 {
-    public interface IOperatorService
+    public interface IReservationRepository
     {
-         
     }
 }

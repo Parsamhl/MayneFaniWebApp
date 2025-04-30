@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Mayne\Cars\Service\" />
+    <Folder Include="Mayne\Reservation\Dto\" />
   </ItemGroup>
 
 </Project>

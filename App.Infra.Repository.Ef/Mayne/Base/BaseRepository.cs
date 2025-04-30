@@ -1,31 +1,44 @@
 ﻿using App.Domain.Core.Mayne.Base.Data;
+using App.Domain.Core.Mayne.Base.Dto;
 using App.Domain.Core.Mayne.Result;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using App.Infra.Db.SqlServer;
 
 namespace App.Infra.Repository.Ef.Mayne.Base
 {
     public class BaseRepository : IBaseRepository
     {
-        public Task<Result> Add(Domain.Core.Mayne.Base.Entities.Base newBase, CancellationToken cancellation)
+        private readonly MayneDbContext _context;
+        public BaseRepository()
+        {
+            _context = new MayneDbContext();
+        }
+        public async Task<Result> Add(Domain.Core.Mayne.Base.Entities.Base newBase, CancellationToken cancellation)
+        {
+            if (newBase is null)
+                 return new Result { IsSuccess = false, Message = "Car is null" };
+
+            await _context.Bases.Add(newBase);
+            await _context.SaveChangesAsync();
+            return new Result { IsSuccess = true, Message = "Done" };
+        }
+
+        public async Task<Result> DeleteBase(int id, CancellationToken cancellation)
+        {
+            var b = _context.Bases.FirstOrDefault(x => x.BaseId == id);
+            if (b is null)
+                return new Result { IsSuccess = false, Message = "not exist" };
+
+            await _context.Bases.Remove(b);
+            _context.SaveChanges();
+            return new Result { IsSuccess = true, Message = "Done" };
+        }
+
+        public Task<List<BaseDto>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Result> DeleteBase(int id, CancellationToken cancellation)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Domain.Core.Mayne.Base.Entities.Base>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Domain.Core.Mayne.Base.Entities.Base> GetBase(int id, CancellationToken cancellation)
+        Task<BaseDto> IBaseRepository.GetBase(int id, CancellationToken cancellation)
         {
             throw new NotImplementedException();
         }

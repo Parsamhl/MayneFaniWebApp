@@ -10,7 +10,7 @@ namespace App.Domain.Core.Mayne.User.Data.UserRepository
     public interface IUserRepository
     {
         Task<Result.Result> Add(User.Entities.User costomer, CancellationToken cancellation);
-        Task< > GetCostomer();
+       // Task< > GetCostomer();
         Task<Result.Result> DeleteCostomer();
     }
 }

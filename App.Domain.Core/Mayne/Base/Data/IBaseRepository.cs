@@ -1,4 +1,5 @@
-﻿using App.Domain.Core.Mayne.Base.Entities;
+﻿using App.Domain.Core.Mayne.Base.Dto;
+using App.Domain.Core.Mayne.Base.Entities;
 using App.Domain.Core.Mayne.Result;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace App.Domain.Core.Mayne.Base.Data
     public interface IBaseRepository
     {
 
-        Task<Base.Entities.Base> GetBase(int id , CancellationToken cancellation);
+        Task<BaseDto> GetBase(int id , CancellationToken cancellation);
         Task<Result.Result> DeleteBase (int id , CancellationToken cancellation);
-        Task<Result.Result> Add(Base.Entities.Base newBase , CancellationToken cancellation);
-        Task<List<Base.Entities.Base>> GetAll();
+        Task<Result.Result> Add(Entities.Base newBase , CancellationToken cancellation);
+        Task<List<BaseDto>> GetAll();
         
 
     }
