@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Mayne\Base\Dto\" />
     <Folder Include="Mayne\Cars\Service\" />
   </ItemGroup>
 
