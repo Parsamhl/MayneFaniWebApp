@@ -33,9 +33,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ef", "Ef", "{C169B7E8-3576-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infra.Repository.Ef", "App.Infra.Repository.Ef\App.Infra.Repository.Ef.csproj", "{30963539-6357-4E73-ACB1-DF64E0CCB048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infra.Db.SqlServer", "App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj", "{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infra.Db.SqlServer", "App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj", "{B8A7B6F3-4B81-411B-B01E-B19447FBFF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayneFaniRazorPage", "MayneFaniRazorPage\MayneFaniRazorPage.csproj", "{116124D2-8906-4BE4-93FE-5EFD2FD633B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MayneFaniRazorPage", "MayneFaniRazorPage\MayneFaniRazorPage.csproj", "{116124D2-8906-4BE4-93FE-5EFD2FD633B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
