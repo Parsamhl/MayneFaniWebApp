@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Mayne\City\" />
-    <Folder Include="Mayne\User\" />
   </ItemGroup>
 
   <ItemGroup>

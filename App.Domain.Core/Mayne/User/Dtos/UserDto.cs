@@ -6,7 +6,7 @@ namespace App.Domain.Core.Mayne.User.Dtos
         public string Name { get; set; }
         public string LastName { get; set; }
 
-        public int NationalCode { get; set; }
+        public string NationalCode { get; set; }
 
         public string? PhoneNumber { get; set; }
 

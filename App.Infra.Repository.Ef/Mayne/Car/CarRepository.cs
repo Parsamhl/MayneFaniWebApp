@@ -2,11 +2,7 @@
 using App.Domain.Core.Mayne.Cars.Dtos;
 using App.Domain.Core.Mayne.Result;
 using App.Infra.Db.SqlServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace App.Infra.Repository.Ef.Mayne.Car
 {
