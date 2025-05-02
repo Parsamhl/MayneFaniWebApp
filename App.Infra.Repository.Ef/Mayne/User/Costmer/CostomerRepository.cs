@@ -3,8 +3,7 @@ using App.Domain.Core.Mayne.User.Data.CostomerRepository;
 using App.Domain.Core.Mayne.User.Dtos;
 using App.Domain.Core.Mayne.User.Entities;
 using App.Infra.Db.SqlServer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
+
 
 
 namespace App.Infra.Repository.Ef.Mayne.User.Costmer
