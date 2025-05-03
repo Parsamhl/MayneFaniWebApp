@@ -13,12 +13,18 @@ using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
 using App.Infra.Db.SqlServer.Configuration.ReservationConfiguration;
 using App.Infra.Db.SqlServer.Configuration.UserConfiguration;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace App.Infra.Db.SqlServer
 {
     public class MayneDbContext : DbContext
     {
 
+
+        public MayneDbContext(DbContextOptions<MayneDbContext> options) : base(options)
+        {
+        }
+    
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Connection.ConnectionString);
