@@ -13,7 +13,11 @@ namespace App.Infra.Db.SqlServer.Configuration.OperatorConfiguration
     {
         public void Configure(EntityTypeBuilder<Operator> builder)
         {
-            builder.ToTable("Operators");   
+            builder.ToTable("Operators");
+            builder.HasKey(x => x.OperatorId);
+
+            builder.Property(x => x.OperatorId)
+                .ValueGeneratedOnAdd();
         }
     }
 }

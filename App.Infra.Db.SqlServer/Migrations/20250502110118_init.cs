@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -47,7 +48,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NationalCode = table.Column<int>(type: "int", nullable: false),
+                    NationalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -60,22 +61,22 @@ namespace App.Infra.Db.SqlServer.Migrations
                 name: "Bases",
                 columns: table => new
                 {
-                    BaseId = table.Column<int>(type: "int", nullable: false)
+                    BaseNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    BaseId = table.Column<int>(type: "int", nullable: false),
                     BaseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BaseNumber = table.Column<int>(type: "int", nullable: false),
                     BaseAdrress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bases", x => x.BaseId);
+                    table.PrimaryKey("PK_Bases", x => x.BaseNumber);
                     table.ForeignKey(
                         name: "FK_Bases_City_CityId",
                         column: x => x.CityId,
                         principalTable: "City",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,30 +97,86 @@ namespace App.Infra.Db.SqlServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cars",
+                name: "Reservations",
                 columns: table => new
                 {
-                    PlateNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    CarName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CarBrand = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CarOwnerID = table.Column<int>(type: "int", nullable: false),
-                    BaseId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CarPlate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BaseId = table.Column<int>(type: "int", nullable: false),
+                    BaseNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cars", x => x.PlateNumber);
+                    table.PrimaryKey("PK_Reservations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cars_Bases_BaseId",
+                        name: "FK_Reservations_Bases_BaseId",
                         column: x => x.BaseId,
                         principalTable: "Bases",
-                        principalColumn: "BaseId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "BaseNumber",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cars",
+                columns: table => new
+                {
+                    CarId = table.Column<int>(type: "int", nullable: false),
+                    CarName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CarBrand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PlateNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CarOwnerID = table.Column<int>(type: "int", nullable: false),
+                    BaseNumber = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cars", x => x.CarId);
+                    table.ForeignKey(
+                        name: "FK_Cars_Bases_BaseNumber",
+                        column: x => x.BaseNumber,
+                        principalTable: "Bases",
+                        principalColumn: "BaseNumber");
                     table.ForeignKey(
                         name: "FK_Cars_Costomers_CarId",
                         column: x => x.CarId,
                         principalTable: "Costomers",
                         principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Cars_Reservations_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Reservations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarHistory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Reservation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IssueReport = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsSuccess = table.Column<bool>(type: "bit", nullable: false),
+                    CarId = table.Column<int>(type: "int", nullable: false),
+                    BaseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CarHistory_Bases_BaseId",
+                        column: x => x.BaseId,
+                        principalTable: "Bases",
+                        principalColumn: "BaseNumber",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CarHistory_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
+                        principalColumn: "CarId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -129,36 +186,52 @@ namespace App.Infra.Db.SqlServer.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_BaseId",
-                table: "Cars",
+                name: "IX_CarHistory_BaseId",
+                table: "CarHistory",
                 column: "BaseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_CarId",
-                table: "Cars",
+                name: "IX_CarHistory_CarId",
+                table: "CarHistory",
                 column: "CarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cars_BaseNumber",
+                table: "Cars",
+                column: "BaseNumber");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_BaseId",
+                table: "Reservations",
+                column: "BaseId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "CarHistory");
 
             migrationBuilder.DropTable(
                 name: "Operators");
 
             migrationBuilder.DropTable(
-                name: "Bases");
+                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Costomers");
 
             migrationBuilder.DropTable(
-                name: "City");
+                name: "Reservations");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Bases");
+
+            migrationBuilder.DropTable(
+                name: "City");
         }
     }
 }

@@ -3,6 +3,7 @@ using App.Domain.Core.Mayne.User.Data.CostomerRepository;
 using App.Domain.Core.Mayne.User.Dtos;
 using App.Domain.Core.Mayne.User.Entities;
 using App.Infra.Db.SqlServer;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -34,15 +35,15 @@ namespace App.Infra.Repository.Ef.Mayne.User.Costmer
             if(costomer is null) 
                 return new Result { IsSuccess = false, Message = "Costomer not found" };
 
-            await _context.Costomers.RemoveAsync(costomer);
+            //await _context.Costomers.RemoveAsync(costomer);
             await _context.SaveChangesAsync();
             return new Result { IsSuccess = true, Message = "Done" };
 
         }
 
-        public Task<UserDto> GetCostomer(string NationalCode)
+        public async Task<UserDto> GetCostomer(string NationalCode)
         {
-            return _context.Costomers.Where(x => x.NationalCode == NationalCode)
+            return await _context.Costomers.Where(x => x.NationalCode == NationalCode)
                 .Select(x => new UserDto
                 {
                     Name = x.Name,
@@ -50,7 +51,7 @@ namespace App.Infra.Repository.Ef.Mayne.User.Costmer
                     NationalCode = x.NationalCode,
                     PhoneNumber = x.PhoneNumber,
 
-                });
+                }).FirstOrDefaultAsync();
         }
     }
 }

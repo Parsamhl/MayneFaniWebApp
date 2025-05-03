@@ -1,11 +1,7 @@
 ﻿using App.Domain.Core.Mayne.User.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace App.Infra.Db.SqlServer.Configuration.CostomerConfiguration
 {
@@ -14,6 +10,13 @@ namespace App.Infra.Db.SqlServer.Configuration.CostomerConfiguration
         public void Configure(EntityTypeBuilder<Costomer> builder)
         {
             builder.ToTable("Costomers");
+
+          //  builder.HasKey(x => x.NationalCode);
+
+            builder.HasMany(x=> x.CostomerCars)
+                .WithOne(x=>x.CarOwner)
+                .HasForeignKey(x => x.CarId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

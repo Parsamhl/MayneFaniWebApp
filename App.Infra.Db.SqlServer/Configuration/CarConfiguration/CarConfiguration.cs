@@ -15,9 +15,10 @@ namespace App.Infra.Db.SqlServer.Configuration.CarConfiguration
         {
             builder.ToTable("Cars");
 
-            builder.HasKey(c => c.PlateNumber);
+            builder.HasKey(c => c.CarId);
 
-            builder.HasOne(c => c.CarOwner).WithMany(c => c.CostomerCars)
+            builder.HasOne(c => c.CarOwner)
+                .WithMany(c => c.CostomerCars)
                 .HasForeignKey(c => c.CarId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

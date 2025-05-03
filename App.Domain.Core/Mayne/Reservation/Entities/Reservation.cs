@@ -15,6 +15,7 @@ namespace App.Domain.Core.Mayne.Reservation.Entities
         public Car Car { get; set; }
         public string CarPlate   { get; set; }
         public Base.Entities.Base Base { get; set; }
+        public int BaseId { get; set; } 
         public string BaseNumber { get; set; }
 
     }

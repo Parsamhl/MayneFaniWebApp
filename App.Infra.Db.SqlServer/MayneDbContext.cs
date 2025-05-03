@@ -5,9 +5,13 @@ using App.Domain.Core.Mayne.Connection;
 using App.Domain.Core.Mayne.History.Entites;
 using App.Domain.Core.Mayne.Reservation.Entities;
 using App.Domain.Core.Mayne.User.Entities;
+using App.Infra.Db.SqlServer.Configuration.BaseConfiguration;
 using App.Infra.Db.SqlServer.Configuration.CarConfiguration;
+using App.Infra.Db.SqlServer.Configuration.CarHistoryConfiguratiom;
 using App.Infra.Db.SqlServer.Configuration.CostomerConfiguration;
 using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
+using App.Infra.Db.SqlServer.Configuration.ReservationConfiguration;
+using App.Infra.Db.SqlServer.Configuration.UserConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Db.SqlServer
@@ -25,6 +29,11 @@ namespace App.Infra.Db.SqlServer
             modelBuilder.ApplyConfiguration(new CostomerConfiguration());
             modelBuilder.ApplyConfiguration(new OperatorConfiguration());
             modelBuilder.ApplyConfiguration(new CarConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new BaseConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservationConfiguration());
+            modelBuilder.ApplyConfiguration(new CarHistoryConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }

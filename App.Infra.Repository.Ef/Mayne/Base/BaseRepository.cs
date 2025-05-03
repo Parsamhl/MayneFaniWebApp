@@ -1,4 +1,5 @@
 ﻿using App.Domain.Core.Mayne.Base.Data;
+using App.Domain.Core.Mayne.Cars.Entities;
 using App.Domain.Core.Mayne.Base.Dto;
 using App.Domain.Core.Mayne.Result;
 using App.Infra.Db.SqlServer;
@@ -17,7 +18,7 @@ namespace App.Infra.Repository.Ef.Mayne.Base
             if (newBase is null)
                  return new Result { IsSuccess = false, Message = "Car is null" };
 
-            await _context.Bases.Add(newBase);
+            await _context.Bases.AddAsync(newBase);
             await _context.SaveChangesAsync();
             return new Result { IsSuccess = true, Message = "Done" };
         }
@@ -28,8 +29,8 @@ namespace App.Infra.Repository.Ef.Mayne.Base
             if (b is null)
                 return new Result { IsSuccess = false, Message = "not exist" };
 
-            await _context.Bases.Remove(b);
-            _context.SaveChanges();
+            _context.Bases.Remove(b);
+            await _context.SaveChangesAsync();
             return new Result { IsSuccess = true, Message = "Done" };
         }
 

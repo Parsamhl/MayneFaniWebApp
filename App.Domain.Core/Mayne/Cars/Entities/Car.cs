@@ -1,4 +1,5 @@
-﻿using App.Domain.Core.Mayne.User.Entities;
+﻿using App.Domain.Core.Mayne.Reservation.Entities;
+using App.Domain.Core.Mayne.User.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,8 @@ namespace App.Domain.Core.Mayne.Cars.Entities
         public int CarOwnerID { get; set; }
 
        
-
+        public Reservation.Entities.Reservation reserve { get; set; }
+        
 
         public List<History.Entites.CarHistory> CarHistory { get; set; }
 

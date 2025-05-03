@@ -19,6 +19,7 @@ namespace App.Infra.Db.SqlServer.Configuration.BaseConfiguration
                 .HasForeignKey(x => x.CityId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+             
 
         }
     }

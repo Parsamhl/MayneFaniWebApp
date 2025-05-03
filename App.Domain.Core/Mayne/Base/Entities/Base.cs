@@ -19,6 +19,7 @@ namespace App.Domain.Core.Mayne.Base.Entities
         public int CityId { get; set; }
 
        
+        public List<Reservation.Entities.Reservation> DailyReservations { get; set; }   
 
         public List<Cars.Entities.Car> Cars { get; set; }
 

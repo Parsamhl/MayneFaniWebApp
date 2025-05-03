@@ -7,4 +7,23 @@
     <RootNamespace>MayneFaniWebApp_MVC_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain.AppService\App.Domain.AppService.csproj" />
+    <ProjectReference Include="..\App.Domain.Core\App.Domain.Core.csproj" />
+    <ProjectReference Include="..\App.Domain.Service\App.Domain.Service.csproj" />
+    <ProjectReference Include="..\App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj" />
+    <ProjectReference Include="..\App.Infra.Repository.Ef\App.Infra.Repository.Ef.csproj" />
+  </ItemGroup>
+
 </Project>

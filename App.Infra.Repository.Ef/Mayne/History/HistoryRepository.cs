@@ -1,6 +1,7 @@
 ﻿using App.Domain.Core.Mayne.History.Data;
 using App.Domain.Core.Mayne.History.Dto;
 using App.Infra.Db.SqlServer;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace App.Infra.Repository.Ef.Mayne.History
