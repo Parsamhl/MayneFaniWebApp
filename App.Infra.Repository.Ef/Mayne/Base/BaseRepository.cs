@@ -3,20 +3,21 @@ using App.Domain.Core.Mayne.Cars.Entities;
 using App.Domain.Core.Mayne.Base.Dto;
 using App.Domain.Core.Mayne.Result;
 using App.Infra.Db.SqlServer;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.Mayne.Base
 {
     public class BaseRepository : IBaseRepository
     {
         private readonly MayneDbContext _context;
-        public BaseRepository()
+        public BaseRepository(MayneDbContext context)
         {
-            _context = new MayneDbContext();
+            _context = context;
         }
         public async Task<Result> Add(Domain.Core.Mayne.Base.Entities.Base newBase, CancellationToken cancellation)
         {
             if (newBase is null)
-                 return new Result { IsSuccess = false, Message = "Car is null" };
+                return new Result { IsSuccess = false, Message = "Car is null" };
 
             await _context.Bases.AddAsync(newBase);
             await _context.SaveChangesAsync();
@@ -34,14 +35,32 @@ namespace App.Infra.Repository.Ef.Mayne.Base
             return new Result { IsSuccess = true, Message = "Done" };
         }
 
-        public Task<List<BaseDto>> GetAll()
+        public async Task<List<BaseDto>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Bases
+                .AsNoTracking()
+                .Select(x => new BaseDto()
+                {
+                    BaseAdrress = x.BaseAdrress,
+                    BaseName = x.BaseName,
+                    BaseNumber = x.BaseNumber,
+                    CityId = x.CityId,
+
+                }).ToListAsync();
         }
 
         Task<BaseDto> IBaseRepository.GetBase(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return _context.Bases
+                .AsNoTracking()
+                .Select(x => new BaseDto()
+                {
+                    CityId = x.CityId,
+                    BaseAdrress = x.BaseAdrress,
+                    BaseName = x.BaseName,
+                    BaseNumber = x.BaseNumber,
+
+                }).FirstOrDefaultAsync();
         }
     }
 }

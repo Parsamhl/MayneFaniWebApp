@@ -12,9 +12,9 @@ namespace App.Infra.Repository.Ef.Mayne.User.Costmer
     public class CostomerRepository : ICostomerRepository
     {
         MayneDbContext _context;
-        public CostomerRepository()
+        public CostomerRepository(MayneDbContext context)
         {
-            _context = new MayneDbContext();
+            _context = context;
         }
 
         public async Task<Result> Add(Costomer costomer, CancellationToken cancellation)

@@ -13,9 +13,9 @@ namespace App.Infra.Repository.Ef.Mayne.Car
 
         private readonly MayneDbContext _context;
 
-        public CarRepository()
+        public CarRepository(MayneDbContext context)
         {
-            _context = new MayneDbContext();
+            _context = context;
         }
 
         public async Task<Result> Add(Domain.Core.Mayne.Cars.Entities.Car car, CancellationToken cancellation)

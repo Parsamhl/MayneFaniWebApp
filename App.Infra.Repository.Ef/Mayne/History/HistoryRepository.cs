@@ -10,14 +10,14 @@ namespace App.Infra.Repository.Ef.Mayne.History
     {
 
         MayneDbContext _context;
-        public HistoryRepository()
+        public HistoryRepository(MayneDbContext context)
         {
-            _context = new MayneDbContext();
+            _context = context;
         }
 
         public async Task<List<HistoryDto>> GetAllHistory(string Plate)
         {
-            return await _context.CarHistory
+            return await _context.CarHistory.AsNoTracking()
                 .Where(x => x.Car.PlateNumber == Plate)
                 .Select(x => new HistoryDto
                 {
