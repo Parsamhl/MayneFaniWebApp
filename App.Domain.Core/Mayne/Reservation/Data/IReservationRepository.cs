@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using App.Domain.Core.Mayne.Reservation.Entities;
+using App.Domain.Core.Mayne.Result;
 
 namespace App.Domain.Core.Mayne.Reservation.Data
 {
     public interface IReservationRepository
     {
+
+        Task<Entities.Reservation> GetReservationByCode(int reservationCode);
+        Task<List<Entities.Reservation>> GetAllReservation();
+        Task<Result.Result> AddReservation(Entities.Reservation reservation);
+        
+
+
     }
 }

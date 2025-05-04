@@ -11,12 +11,15 @@ namespace App.Domain.Core.Mayne.Reservation.Entities
     public class Reservation
     {
         public int Id { get; set; }
+        public int ReservationCode { get; set; }
         public DateTime Date { get; set; }
         public Car Car { get; set; }
         public string CarPlate   { get; set; }
         public Base.Entities.Base Base { get; set; }
         public int BaseId { get; set; } 
         public string BaseNumber { get; set; }
+
+        
 
     }
 }
