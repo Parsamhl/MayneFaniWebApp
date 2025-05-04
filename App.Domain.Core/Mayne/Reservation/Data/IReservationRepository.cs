@@ -8,8 +8,8 @@ namespace App.Domain.Core.Mayne.Reservation.Data
     public interface IReservationRepository
     {
 
-        Task<Entities.Reservation> GetReservationByCode(int reservationCode);
-        Task<List<Entities.Reservation>> GetAllReservation();
+        Task<Dto.ReservationDto> GetReservationByCode(int reservationCode);
+        Task<List<Dto.ReservationDto>> GetAllReservation();
         Task<Result.Result> AddReservation(Entities.Reservation reservation);
         
 
