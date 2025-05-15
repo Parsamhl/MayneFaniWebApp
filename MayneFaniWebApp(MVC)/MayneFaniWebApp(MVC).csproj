@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\App.DA.Dapper\App.Infra.Repo.Dapper.csproj" />
     <ProjectReference Include="..\App.Domain.AppService\App.Domain.AppService.csproj" />
     <ProjectReference Include="..\App.Domain.Core\App.Domain.Core.csproj" />
     <ProjectReference Include="..\App.Domain.Service\App.Domain.Service.csproj" />
