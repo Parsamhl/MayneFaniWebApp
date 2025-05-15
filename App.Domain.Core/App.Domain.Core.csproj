@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Mayne\History\Service\" />
+    <Folder Include="Mayne\Reservation\Service\" />
+  </ItemGroup>
+
 </Project>

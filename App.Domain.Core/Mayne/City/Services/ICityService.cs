@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Service.Mayne.City
+namespace App.Domain.Core.Mayne.City.Services
 {
-    public interface ICityService
-    {
-        Task<List<CityDto>> GetAll();
-    }
+	public interface ICityService
+	{
+		Task<List<CityDto>> GetAll();
+	}
 }

@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Service.Mayne.User.Costomer
+namespace App.Domain.Core.Mayne.User.Services.CostomerService
 {
-    public interface ICostomerService
-    {
-        Task<Result> Add(Core.Mayne.User.Entities.Costomer costomer, CancellationToken cancellation);
-        Task<Core.Mayne.User.Entities.Costomer> GetCostomer();
-        Task<Result> DeleteCostomer();
-    }
+	public interface ICostomerService
+	{
+		Task<Result> Add(Entities.Costomer costomer, CancellationToken cancellation);
+		Task<Entities.Costomer> GetCostomer();
+		Task<Result> DeleteCostomer();
+	}
 }
