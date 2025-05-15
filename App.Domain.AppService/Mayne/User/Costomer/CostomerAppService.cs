@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Service.Mayne.User.Operator
+namespace App.Domain.AppService.Mayne.User.Costomer
 {
-    public interface IOperatorService
-    {
-    }
+	 public class CostomerAppService (ICostomerAppService)
+	{
+	}
 }
