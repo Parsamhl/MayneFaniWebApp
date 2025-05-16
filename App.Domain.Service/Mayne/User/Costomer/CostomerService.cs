@@ -18,6 +18,11 @@ namespace App.Domain.Service.Mayne.User.Costomer
 			return await _costomerRepository.DeleteCostomer(NationalCode);
 		}
 
+		public async Task<List<UserDto>> GetAllAsync(CancellationToken token)
+		{
+			return await _costomerRepository.GetAllAsync(token);
+		}
+
 		public async Task<UserDto> GetCostomer(string NationalCode)
 		{
 			return await _costomerRepository.GetCostomer(NationalCode);

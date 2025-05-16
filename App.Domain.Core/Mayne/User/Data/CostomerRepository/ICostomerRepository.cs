@@ -12,6 +12,7 @@ namespace App.Domain.Core.Mayne.User.Data.CostomerRepository
         Task<Result.Result> Add(Costomer costomer, CancellationToken cancellation);
         Task<UserDto> GetCostomer(string NationalCode);
         Task<Result.Result> DeleteCostomer(string NationalCode);
+        Task<List<UserDto>> GetAllAsync(CancellationToken token);
 
-    }
+	}
 }

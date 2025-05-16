@@ -5,8 +5,6 @@ using App.Domain.Core.Mayne.User.Entities;
 using App.Infra.Db.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
-
-
 namespace App.Infra.Repository.Ef.Mayne.User.Costmer
 {
     public class CostomerRepository : ICostomerRepository
@@ -41,7 +39,19 @@ namespace App.Infra.Repository.Ef.Mayne.User.Costmer
 
         }
 
-        public async Task<UserDto> GetCostomer(string NationalCode)
+		public async Task<List<UserDto>> GetAllAsync(CancellationToken token)
+		{
+            return await _context.Costomers.Select(x => new UserDto
+            {
+                LastName = x.LastName,
+                Name = x.Name,
+                NationalCode = x.NationalCode,
+                PhoneNumber = x.PhoneNumber,
+
+            }).ToListAsync();
+		}
+
+		public async Task<UserDto> GetCostomer(string NationalCode)
         {
             return await _context.Costomers.Where(x => x.NationalCode == NationalCode)
                 .Select(x => new UserDto
