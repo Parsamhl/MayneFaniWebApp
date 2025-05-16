@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Mayne\City\" />
+    <Folder Include="Mayne\History\" />
     <Folder Include="Mayne\User\Operator\" />
   </ItemGroup>
 
