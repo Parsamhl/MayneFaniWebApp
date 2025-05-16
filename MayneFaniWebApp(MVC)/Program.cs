@@ -1,11 +1,17 @@
+using App.Domain.AppService.Mayne.User.Costomer;
 using App.Domain.Core.Mayne.Base.Data;
 using App.Domain.Core.Mayne.Base.Services;
 using App.Domain.Core.Mayne.Cars.Data;
 using App.Domain.Core.Mayne.Cars.Service;
+using App.Domain.Core.Mayne.History.Service;
 using App.Domain.Core.Mayne.Reservation.Data;
+using App.Domain.Core.Mayne.User.AppService.CostomerAppService;
 using App.Domain.Core.Mayne.User.Data.CostomerRepository;
+using App.Domain.Core.Mayne.User.Services.CostomerService;
 using App.Domain.Service.Mayne.Base;
 using App.Domain.Service.Mayne.Car;
+using App.Domain.Service.Mayne.History;
+using App.Domain.Service.Mayne.User.Costomer;
 using App.Infra.Db.SqlServer;
 using App.Infra.Repo.Dapper.Mayne.Reservation;
 using App.Infra.Repository.Ef.Mayne.Base;
@@ -38,10 +44,12 @@ builder.Services.AddScoped<IBaseService , BaseService>();
 
 
 builder.Services.AddScoped<IHistoryRepository, HistoryRepository>();
-builder.Services.AddScoped<IHistoryService, HistoryService>();
+builder.Services.AddScoped<IHsitoryService, HistoryService>();
 
 
 builder.Services.AddScoped<ICostomerRepository , CostomerRepository>();
+builder.Services.AddScoped<ICostomerService, CostomerService>();
+builder.Services.AddScoped<ICostomerAppService, CostomerAppService>();	
 
 builder.Services.AddScoped<IReservationRepository , ReservationRepositoryDapper>();
 
