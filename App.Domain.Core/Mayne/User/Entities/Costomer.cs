@@ -9,7 +9,7 @@ namespace App.Domain.Core.Mayne.User.Entities
 {
     public class Costomer : User
     {
-        public List<Car> CostomerCars { get; set; }
+        public List<Car>? CostomerCars { get; set; }
 
     }
 }
