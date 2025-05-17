@@ -87,6 +87,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
 
     name: "costomer",
-    pattern: "{controller=Costomer}/{action=CostomerProfile}/{id?}");
+    pattern: "{controller=Costomer}/{action=CostomerRegister}/{id?}");
 
 app.Run();
