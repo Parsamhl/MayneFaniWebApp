@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.Mayne.History
 {
-    public class HistoryRepository : IHsitoryRepository
+    public class CarHistoryRepository : ICarHsitoryRepository
     {
 
         MayneDbContext _context;
-        public HistoryRepository(MayneDbContext context)
+        public CarHistoryRepository(MayneDbContext context)
         {
             _context = context;
         }

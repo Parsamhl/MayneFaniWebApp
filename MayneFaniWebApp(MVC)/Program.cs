@@ -3,6 +3,7 @@ using App.Domain.Core.Mayne.Base.Data;
 using App.Domain.Core.Mayne.Base.Services;
 using App.Domain.Core.Mayne.Cars.Data;
 using App.Domain.Core.Mayne.Cars.Service;
+using App.Domain.Core.Mayne.History.Data;
 using App.Domain.Core.Mayne.History.Service;
 using App.Domain.Core.Mayne.Reservation.Data;
 using App.Domain.Core.Mayne.User.AppService.CostomerAppService;
@@ -16,11 +17,10 @@ using App.Infra.Db.SqlServer;
 using App.Infra.Repo.Dapper.Mayne.Reservation;
 using App.Infra.Repository.Ef.Mayne.Base;
 using App.Infra.Repository.Ef.Mayne.Car;
+using App.Infra.Repository.Ef.Mayne.History;
 using App.Infra.Repository.Ef.Mayne.User.Costmer;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
 using System.Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,9 +32,10 @@ builder.Services.AddScoped<IDbConnection>(sp =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IcarService, CarService>();
 
 builder.Services.AddScoped<ICarRepository, CarRepository>();
-builder.Services.AddScoped<IcarService, CarService>();
+
 
 
 
@@ -43,7 +44,7 @@ builder.Services.AddScoped<IBaseService , BaseService>();
 
 
 
-builder.Services.AddScoped<IHistoryRepository, HistoryRepository>();
+builder.Services.AddScoped<ICarHsitoryRepository, CarHistoryRepository>();
 builder.Services.AddScoped<IHsitoryService, HistoryService>();
 
 
@@ -72,15 +73,20 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+
+//	name: "areas",
+//	pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+
+//app.MapControllerRoute(
+
+//	name: "default",
+//	pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
 
-	name: "areas",
-	pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-
-app.MapControllerRoute(
-
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "costomer",
+    pattern: "{controller=Costomer}/{action=CostomerProfile}/{id?}");
 
 app.Run();

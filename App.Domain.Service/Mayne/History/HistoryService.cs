@@ -4,7 +4,7 @@ using App.Domain.Core.Mayne.History.Service;
 
 namespace App.Domain.Service.Mayne.History
 {
-	public class HistoryService(IHsitoryRepository _hsitoryRepository) : IHsitoryService
+	public class HistoryService(ICarHsitoryRepository _hsitoryRepository) : IHsitoryService
 	{
 		public async Task<List<HistoryDto>> GetAllRecords(CancellationToken token)
 		{

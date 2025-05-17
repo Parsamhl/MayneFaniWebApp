@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace App.Domain.Core.Mayne.History.Data
 {
-    public interface IHsitoryRepository
+    public interface ICarHsitoryRepository
     {
 
 		Task<List<HistoryDto>> GetAllRecords(CancellationToken token);
